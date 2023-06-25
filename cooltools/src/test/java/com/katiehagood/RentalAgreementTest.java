@@ -23,7 +23,7 @@ public class RentalAgreementTest {
     @Before
     public void setUp() throws Exception{
         validToolCode = "CHNS";
-        validStartDate = "6/25/2023";
+        validStartDate = "6/25/23";
         validNumDays = 5;
         validDiscount = 25;
         validCheckoutCart = new CheckoutCart(validToolCode, validNumDays, validDiscount, validStartDate);
@@ -51,7 +51,7 @@ public class RentalAgreementTest {
 
     @Test
     public void getNumberOfChargeDays_NotWeekends() throws Exception{
-        CheckoutCart cart = new CheckoutCart("CHNS", 14, 0, "06/14/2023");
+        CheckoutCart cart = new CheckoutCart("CHNS", 14, 0, "06/14/23");
         RentalAgreement ra = cart.generateRentalAgreement();
 
         assertEquals(10, ra.getChargeDays());
@@ -59,7 +59,7 @@ public class RentalAgreementTest {
 
     @Test
     public void getNumberOfChargeDays_InclWeekends() throws Exception{
-        CheckoutCart cart = new CheckoutCart("LADW", 14, 0, "06/14/2023");
+        CheckoutCart cart = new CheckoutCart("LADW", 14, 0, "06/14/23");
         RentalAgreement ra = cart.generateRentalAgreement();
 
         assertEquals(14, ra.getChargeDays());
@@ -67,28 +67,28 @@ public class RentalAgreementTest {
 
     @Test
     public void getPreDiscountCharge() throws Exception {
-        CheckoutCart cart = new CheckoutCart("LADW", 14, 0, "06/14/2023");
+        CheckoutCart cart = new CheckoutCart("LADW", 14, 0, "06/14/23");
         RentalAgreement ra = cart.generateRentalAgreement();
         assertEquals(new BigDecimal("27.86"), ra.getPreDiscountCharge());
     }
 
     @Test
     public void getDiscountAmount() throws Exception {
-        CheckoutCart cart = new CheckoutCart("LADW", 14, 20, "06/14/2023");
+        CheckoutCart cart = new CheckoutCart("LADW", 14, 20, "06/14/23");
         RentalAgreement ra = cart.generateRentalAgreement();
         assertEquals(new BigDecimal("5.58"), ra.getDiscountAmount());
     }
 
     @Test
     public void getFinalAmount() throws Exception {
-        CheckoutCart cart = new CheckoutCart("LADW", 14, 20, "06/14/2023");
+        CheckoutCart cart = new CheckoutCart("LADW", 14, 20, "06/14/23");
         RentalAgreement ra = cart.generateRentalAgreement();
         assertEquals(new BigDecimal("22.28"), ra.getFinalAmount());
     }
     
     @Test
     public void getAsString() throws Exception {
-        CheckoutCart cart = new CheckoutCart("LADW", 14, 20, "06/14/2023");
+        CheckoutCart cart = new CheckoutCart("LADW", 14, 20, "06/14/23");
         RentalAgreement ra = cart.generateRentalAgreement();
 
         String expected = """
@@ -96,8 +96,8 @@ public class RentalAgreementTest {
         Tool type: Ladder 
         Tool brand: Werner 
         Rental days: 14 
-        Checkout date: 06/14/2023 
-        Due date: 06/28/2023 
+        Checkout date: 06/14/23 
+        Due date: 06/28/23 
         Daily rental charge: $1.99 
         Charge days: 14 
         Pre-discount charge:  $27.86 

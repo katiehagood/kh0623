@@ -25,7 +25,7 @@ public class CheckoutCartTest {
     @Before
     public void setUp() {
         validToolCode = "CHNS";
-        validStartDate = "6/25/2023";
+        validStartDate = "6/25/23";
         validNumDays = 5;
         validDiscount = 25;
     }

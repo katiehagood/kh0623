@@ -76,7 +76,7 @@ public class RentalAgreement {
     }
 
     public String toString() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yy");
         return String.format(
             "Tool code: %s\n" +
             "Tool type: %s\n" +

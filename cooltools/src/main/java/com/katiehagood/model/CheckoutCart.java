@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
+import com.katiehagood.exceptions.CheckoutException;
 import com.katiehagood.exceptions.InvalidDiscountException;
 import com.katiehagood.exceptions.InvalidNumRentalDaysException;
 import com.katiehagood.exceptions.InvalidStartDateException;
@@ -19,7 +20,7 @@ public class CheckoutCart {
     private LocalDate startDate;
 
 
-    public CheckoutCart(String toolCode, int numDays, int discount, String startDate) throws UnknownToolCodeException, InvalidDiscountException, InvalidStartDateException, InvalidNumRentalDaysException{
+    public CheckoutCart(String toolCode, int numDays, int discount, String startDate) throws CheckoutException{
         validDiscount(discount);
         validNumDays(numDays);
         this.tool = new ToolFactory().getTool(toolCode);
@@ -41,7 +42,7 @@ public class CheckoutCart {
     }
 
     private static LocalDate convertToDate(String dateString) throws InvalidStartDateException{
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("[M/]d/yyyy");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("[M/]d/yy");
 
         try {
             return LocalDate.parse(dateString, formatter);
