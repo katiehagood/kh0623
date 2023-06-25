@@ -47,7 +47,7 @@ public class CheckoutCart {
         try {
             return LocalDate.parse(dateString, formatter);
         } catch (DateTimeParseException dateTimeParseException) {
-            throw new InvalidStartDateException("Could not parse date %s".formatted(dateString));
+            throw new InvalidStartDateException("Could not parse date %s. Please make sure it is in MM/dd/yy format.".formatted(dateString));
         }
     }
     
