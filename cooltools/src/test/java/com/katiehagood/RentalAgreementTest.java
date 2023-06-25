@@ -85,5 +85,28 @@ public class RentalAgreementTest {
         RentalAgreement ra = cart.generateRentalAgreement();
         assertEquals(new BigDecimal("22.28"), ra.getFinalAmount());
     }
+    
+    @Test
+    public void getAsString() throws Exception {
+        CheckoutCart cart = new CheckoutCart("LADW", 14, 20, "06/14/2023");
+        RentalAgreement ra = cart.generateRentalAgreement();
+
+        String expected = """
+        Tool code: LADW 
+        Tool type: Ladder 
+        Tool brand: Werner 
+        Rental days: 14 
+        Checkout date: 06/14/2023 
+        Due date: 06/28/2023 
+        Daily rental charge: $1.99 
+        Charge days: 14 
+        Pre-discount charge:  $27.86 
+        Discount percent: 20% 
+        Discount amount: $5.58 
+        -------------------------
+        Final charge: $22.28 
+        """;
+        assertEquals(expected, ra.toString());
+    }
 
 }

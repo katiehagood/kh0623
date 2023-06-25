@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class RentalAgreement {
     
@@ -72,5 +73,36 @@ public class RentalAgreement {
 
     public BigDecimal getFinalAmount() {
         return this.getPreDiscountCharge().subtract(this.getDiscountAmount());
+    }
+
+    public String toString() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+        return String.format(
+            "Tool code: %s\n" +
+            "Tool type: %s\n" +
+            "Tool brand: %s\n" +
+            "Rental days: %d\n" +
+            "Checkout date: %s\n" +
+            "Due date: %s\n" +
+            "Daily rental charge: $%.2f\n" +
+            "Charge days: %d\n" +
+            "Pre-discount charge:  $%.2f\n" +
+            "Discount percent: %d%%\n" +
+            "Discount amount: $%.2f\n" +
+            "-------------------------\n" +
+            "Final charge: $%.2f\n"
+            ,this.cart.getTool().getCode(),
+            this.cart.getTool().getType().getName(),
+            this.cart.getTool().getBrand(),
+            this.cart.getNumDays(),
+            this.cart.getStartDate().format(formatter),
+            this.getDueDate().format(formatter),
+            this.getDailyRentalCharge(),
+            this.getChargeDays(),
+            this.getPreDiscountCharge(),
+            this.cart.getDiscount(),
+            this.getDiscountAmount(),
+            this.getFinalAmount()
+        );
     }
 }
