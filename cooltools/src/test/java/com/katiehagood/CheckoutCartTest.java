@@ -6,6 +6,7 @@ import com.katiehagood.exceptions.InvalidDiscountException;
 import com.katiehagood.exceptions.InvalidNumRentalDaysException;
 import com.katiehagood.exceptions.UnknownToolCodeException;
 import com.katiehagood.model.CheckoutCart;
+import com.katiehagood.model.RentalAgreement;
 
 import static org.junit.Assert.*;
 
@@ -61,6 +62,13 @@ public class CheckoutCartTest {
     public void checkoutCartTest_0RentalDays() throws Exception{
          // Instantiating a tool with an unknown tool code will throw exception
          CheckoutCart cart = new CheckoutCart(validToolCode, 0, validDiscount, validStartDate);
+    }
+
+    @Test
+    public void generateRentalAgreementTest() throws Exception{
+        CheckoutCart cart = new CheckoutCart(validToolCode, validNumDays, validDiscount, validStartDate);
+        RentalAgreement ra = cart.generateRentalAgreement();
+        assertEquals(ra.getCart().getNumDays(), validNumDays);
     }
 
 }

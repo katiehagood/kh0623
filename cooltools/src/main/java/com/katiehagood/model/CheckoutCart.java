@@ -65,4 +65,8 @@ public class CheckoutCart {
     public LocalDate getStartDate() {
         return startDate;
     }
+
+    public RentalAgreement generateRentalAgreement() {
+        return new RentalAgreement(this);
+    }
 }
