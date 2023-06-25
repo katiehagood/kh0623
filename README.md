@@ -1,1 +1,3 @@
-# kh0623
+# Cool Tools
+
+A CLI to rent tools
