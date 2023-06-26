@@ -2,6 +2,9 @@
 
 A CLI to rent tools
 
+## ToDo:
+* Add Holiday functionality
+
 ## How to run
 
 1. Package
