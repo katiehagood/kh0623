@@ -86,7 +86,7 @@ public class RentalAgreement {
             "Due date: %s\n" +
             "Daily rental charge: $%.2f\n" +
             "Charge days: %d\n" +
-            "Pre-discount charge:  $%.2f\n" +
+            "Pre-discount charge: $%.2f\n" +
             "Discount percent: %d%%\n" +
             "Discount amount: $%.2f\n" +
             "-------------------------\n" +

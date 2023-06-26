@@ -100,7 +100,7 @@ public class RentalAgreementTest {
         Due date: 06/28/23 
         Daily rental charge: $1.99 
         Charge days: 14 
-        Pre-discount charge:  $27.86 
+        Pre-discount charge: $27.86 
         Discount percent: 20% 
         Discount amount: $5.58 
         -------------------------
