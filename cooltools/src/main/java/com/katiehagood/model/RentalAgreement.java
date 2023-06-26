@@ -6,6 +6,8 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+import com.katiehagood.model.holiday.HolidayChecker;
+
 public class RentalAgreement {
     
     private CheckoutCart cart;
