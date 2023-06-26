@@ -55,7 +55,7 @@ public class AppTest
         Discount percent: 10% 
         Discount amount: $0.40 
         -------------------------
-        Final charge: $3.50 
+        Final charge: $3.58 
         """;
         assertEquals(expected, ra.toString());
     }
@@ -63,7 +63,7 @@ public class AppTest
     @Test
     public void test3() throws CheckoutException
     {
-        // Independence day observed 7/6
+        // Chainsaws charge on holidays
         // Chainsaws don't have a weekend charge
         CheckoutCart cart = new CheckoutCart(
             "CHNS",
@@ -81,12 +81,12 @@ public class AppTest
         Checkout date: 07/02/15 
         Due date: 07/07/15 
         Daily rental charge: $1.49 
-        Charge days: 2 
-        Pre-discount charge: $2.98 
+        Charge days: 3 
+        Pre-discount charge: $4.47 
         Discount percent: 25% 
-        Discount amount: $0.75 
+        Discount amount: $1.12 
         -------------------------
-        Final charge: $2.23 
+        Final charge: $3.35 
         """;
         assertEquals(expected, ra.toString());
     }
@@ -144,12 +144,12 @@ public class AppTest
         Checkout date: 07/02/15
         Due date: 07/11/15 
         Daily rental charge: $2.99 
-        Charge days: 6 
-        Pre-discount charge: $17.94 
+        Charge days: 5 
+        Pre-discount charge: $14.95 
         Discount percent: 0% 
         Discount amount: $0.00 
         -------------------------
-        Final charge: $17.94 
+        Final charge: $14.95 
         """;
         assertEquals(expected, ra.toString());
     }

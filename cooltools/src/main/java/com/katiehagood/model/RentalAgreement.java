@@ -48,9 +48,12 @@ public class RentalAgreement {
 
     private boolean shouldChargeDay(LocalDate date){
         boolean chargeWeekends = this.cart.getTool().getType().hasWeekendCharge();
+        boolean chargeHolidays = this.cart.getTool().getType().hasHolidayCharge();
         DayOfWeek dayOfWeek = date.getDayOfWeek();
 
         if (!chargeWeekends && (dayOfWeek == DayOfWeek.SATURDAY || dayOfWeek == DayOfWeek.SUNDAY)) {
+            return false;
+        } else if (!chargeHolidays && HolidayChecker.isObservedHoliday(date)) {
             return false;
         }
 
