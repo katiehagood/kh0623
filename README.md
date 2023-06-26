@@ -16,3 +16,7 @@ A CLI to rent tools
     ```bash
     java -jar .\target\cooltools-1.0-SNAPSHOT.jar
     ```
+
+## Required Tests
+
+The tests outlined in the requirements are located in cooltools\src\test\java\com\katiehagood\AppTest.java
