@@ -7,12 +7,17 @@ import com.katiehagood.model.CheckoutCart;
 import com.katiehagood.model.RentalAgreement;
 
 /**
- * Hello world!
+ * Cool Tools App
  *
  */
 public class App 
 {
 
+    /**
+     * Gets checkout info from the user
+     * @param scanner CLI scanner
+     * @return CheckoutCart if valid
+     */
     public static CheckoutCart getCheckoutInfo(Scanner scanner) {
         System.out.println("Please enter your rental info");
         
@@ -36,6 +41,11 @@ public class App
         }
         return null;
     }
+
+    /**
+     * Entrypoint into CoolTools
+     * @param args
+     */
     public static void main( String[] args )
     {
         System.out.println("Welcome to Cool Tools!");
@@ -44,6 +54,7 @@ public class App
         Scanner scanner = new Scanner(System.in);
         CheckoutCart cart = getCheckoutInfo(scanner);
 
+        // Checkout failed; ask to try again
         while (active && cart == null) {
             System.out.println("Would you like to try again? (y/n)");
             String answer = scanner.nextLine();
@@ -54,6 +65,7 @@ public class App
             }
         }
 
+        // If checkout was successful, print rental agreement
         if (cart != null) {
             RentalAgreement ra = cart.generateRentalAgreement();
             System.out.println(ra.toString());

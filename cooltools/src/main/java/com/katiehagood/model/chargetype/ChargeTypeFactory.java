@@ -4,6 +4,12 @@ import java.math.BigDecimal;
 
 public class ChargeTypeFactory {
     
+    /**
+     * Gets charge type based on tool code.
+     * Assumes first letter in tool code identifies type
+     * @param toolCode Tool code
+     * @return Charge type of tool
+     */
     public ChargeType getChargeType(String toolCode) {
         char toolType = Character.toLowerCase(toolCode.charAt(0));
         switch (toolType) {

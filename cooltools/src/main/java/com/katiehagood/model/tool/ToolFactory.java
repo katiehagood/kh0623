@@ -4,6 +4,12 @@ import com.katiehagood.exceptions.UnknownToolCodeException;
 
 public class ToolFactory {
 
+    /**
+     * Given a tool code returns a Tool object
+     * @param toolCode Tool code
+     * @return Tool object
+     * @throws UnknownToolCodeException If no tool with that code exists
+     */
     public Tool getTool(String toolCode) throws UnknownToolCodeException{
         switch (toolCode) {
             case "CHNS":
